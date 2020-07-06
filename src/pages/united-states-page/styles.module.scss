@@ -1,0 +1,54 @@
+.root {
+  position: relative;
+}
+
+.mapItem {
+  cursor: pointer;
+  transition: 0.15s fill ease-in-out;
+  stroke-width: 1;
+  fill: #f9f9f9;
+  // TODO Figure out why scaling the `path` elements doesn't pop out directly from the middle
+  // transition: 0.25s transform ease-in-out;
+
+  &:hover {
+    fill: #999;
+    //   transform: scale(1.1);
+    //   transform-origin: center;
+  }
+}
+
+.isCorrect {
+  fill: green;
+  cursor: default;
+
+  &:hover {
+    fill: green;
+  }
+}
+
+.completedMessage {
+  position: absolute;
+  z-index: 2;
+  width: 80vw;
+  height: 50vh;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border: 1px solid #999;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 2em;
+
+  > :first-child {
+    margin-top: 0;
+  }
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+}

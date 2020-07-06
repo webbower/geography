@@ -3,13 +3,32 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 3002",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "test": "NODE_ENV=test riteway -r @babel/register -r regenerator-runtime -r ignore-styles src/**/*.test.js src/**/*.test.jsx",
+    "test:dev": "NODE_ENV=test riteway -r @babel/register -r regenerator-runtime -r ignore-styles src/tests.dev.js | tap-color && echo 'Test pass.'",
+    "test:watch": "chokidar src/**/*.test.js src/**/*.test.jsx -c \"clear && yarn run -s test:dev\" --initial --silent",
+    "watch": "chokidar src -c \"clear && yarn run -s test:dev\" --initial --silent"
   },
   "dependencies": {
+    "classnames": "2.2.6",
+    "lodash.shuffle": "4.2.0",
     "next": "9.4.4",
+    "ramda": "0.27.0",
     "react": "16.13.1",
     "react-dom": "16.13.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.10.3",
+    "@babel/core": "7.10.3",
+    "@babel/register": "7.10.3",
+    "chokidar": "3.4.0",
+    "chokidar-cli": "2.1.0",
+    "ignore-styles": "5.0.1",
+    "regenerator-runtime": "0.13.5",
+    "riteway": "6.1.2",
+    "sass": "1.26.9",
+    "tap-color": "1.2.0"
   }
 }
